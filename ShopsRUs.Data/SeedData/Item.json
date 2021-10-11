@@ -1,0 +1,502 @@
+[
+  {
+    "Itemid": "616260e1db65ffeb757012e3",
+    "Name": "duis",
+    "Description": "Tempor officia excepteur labore ex enim excepteur Lorem cupidatat.",
+    "price": 5869,
+    "IsItemOfTheWeek": true,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a384b3f9a1de71ef8f"
+  },
+  {
+    "Itemid": "616260e1f289c48b64eaa318",
+    "Name": "culpa",
+    "Description": "Est cillum minim cillum id quis eu.",
+    "price": 16078,
+    "IsItemOfTheWeek": false,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a39f7c47417b5a9dfb"
+  },
+  {
+    "Itemid": "616260e1ed5eef7bf15d6a30",
+    "Name": "veniam",
+    "Description": "Veniam enim tempor aute Lorem occaecat labore laboris ullamco aliquip fugiat occaecat voluptate nostrud.",
+    "price": 15656,
+    "IsItemOfTheWeek": true,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a343bb12a66b08135b"
+  },
+  {
+    "Itemid": "616260e118ae770f84c14116",
+    "Name": "velit",
+    "Description": "Ut consectetur minim nulla cupidatat cillum velit.",
+    "price": 4075,
+    "IsItemOfTheWeek": true,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a343bb12a66b08135b"
+  },
+  {
+    "Itemid": "616260e1f9433a1805f7f2b8",
+    "Name": "enim",
+    "Description": "Excepteur exercitation et cupidatat amet deserunt amet Lorem voluptate in ipsum.",
+    "price": 13282,
+    "IsItemOfTheWeek": false,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a39f7c47417b5a9dfb"
+  },
+  {
+    "Itemid": "616260e1dcac2281cbe8e06f",
+    "Name": "reprehenderit",
+    "Description": "Laborum ullamco ullamco aliqua velit duis fugiat ipsum qui esse eiusmod sit nulla.",
+    "price": 19966,
+    "IsItemOfTheWeek": false,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a3244468b973bb4476"
+  },
+  {
+    "Itemid": "616260e102cb17b84995fc61",
+    "Name": "et",
+    "Description": "Sint pariatur nulla consectetur ex incididunt labore laboris commodo excepteur sit Lorem consectetur.",
+    "price": 2603,
+    "IsItemOfTheWeek": true,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a35ea6b654b27aaa02"
+  },
+  {
+    "Itemid": "616260e14e314a0df3fe285b",
+    "Name": "nisi",
+    "Description": "Lorem eu est irure voluptate minim culpa commodo nulla occaecat nisi esse sit.",
+    "price": 9497,
+    "IsItemOfTheWeek": true,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a35ea6b654b27aaa02"
+  },
+  {
+    "Itemid": "616260e18e56ba74ded01f31",
+    "Name": "eiusmod",
+    "Description": "Enim magna proident occaecat sunt incididunt eu do amet deserunt pariatur eu dolor exercitation.",
+    "price": 11979,
+    "IsItemOfTheWeek": false,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a384b3f9a1de71ef8f"
+  },
+  {
+    "Itemid": "616260e1650453d05c58a8f5",
+    "Name": "anim",
+    "Description": "Sint nulla culpa sunt dolore in sunt enim incididunt consequat voluptate reprehenderit.",
+    "price": 6746,
+    "IsItemOfTheWeek": true,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a39f7c47417b5a9dfb"
+  },
+  {
+    "Itemid": "616260e17001b820a742e860",
+    "Name": "enim",
+    "Description": "Velit cupidatat consectetur elit aute incididunt consectetur sint sit elit in.",
+    "price": 10220,
+    "IsItemOfTheWeek": false,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a384b3f9a1de71ef8f"
+  },
+  {
+    "Itemid": "616260e1da80da3e093ad979",
+    "Name": "ut",
+    "Description": "Laboris magna amet occaecat sint excepteur eiusmod eu nostrud.",
+    "price": 16636,
+    "IsItemOfTheWeek": false,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a3244468b973bb4476"
+  },
+  {
+    "Itemid": "616260e1e976a4fbc15a14b3",
+    "Name": "culpa",
+    "Description": "Aute ipsum sunt in veniam nostrud cillum tempor.",
+    "price": 18189,
+    "IsItemOfTheWeek": true,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a35ea6b654b27aaa02"
+  },
+  {
+    "Itemid": "616260e132f0f51a8e30f741",
+    "Name": "officia",
+    "Description": "Ullamco do enim labore minim aliquip incididunt elit ex ex cupidatat consequat mollit excepteur.",
+    "price": 17809,
+    "IsItemOfTheWeek": false,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a35ea6b654b27aaa02"
+  },
+  {
+    "Itemid": "616260e13b74ac3eb63b0241",
+    "Name": "consectetur",
+    "Description": "Deserunt elit do Lorem laboris.",
+    "price": 3715,
+    "IsItemOfTheWeek": true,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a343bb12a66b08135b"
+  },
+  {
+    "Itemid": "616260e100940d85d0b51549",
+    "Name": "amet",
+    "Description": "Labore ullamco occaecat quis dolor amet occaecat veniam aliquip ipsum excepteur.",
+    "price": 2188,
+    "IsItemOfTheWeek": false,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a3244468b973bb4476"
+  },
+  {
+    "Itemid": "616260e175cb00da3ef76832",
+    "Name": "sint",
+    "Description": "Do minim dolor id minim.",
+    "price": 16734,
+    "IsItemOfTheWeek": false,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a343bb12a66b08135b"
+  },
+  {
+    "Itemid": "616260e1c51b4419bed62cc4",
+    "Name": "mollit",
+    "Description": "Aute do laborum enim nulla in non deserunt voluptate cupidatat labore ad sit.",
+    "price": 10462,
+    "IsItemOfTheWeek": false,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a384b3f9a1de71ef8f"
+  },
+  {
+    "Itemid": "616260e195ee5727c708be1b",
+    "Name": "incididunt",
+    "Description": "Consectetur magna est aliquip mollit ex elit eiusmod ea quis commodo elit.",
+    "price": 11349,
+    "IsItemOfTheWeek": false,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a3244468b973bb4476"
+  },
+  {
+    "Itemid": "616260e1a42d6f8183a9441e",
+    "Name": "non",
+    "Description": "Amet elit deserunt est excepteur dolore tempor commodo irure ut ex nisi laboris.",
+    "price": 14736,
+    "IsItemOfTheWeek": false,
+    "InStock": true,
+    "ImageUrl": "http://placehold.it/32x32",
+    "CategoryId": "616256a343bb12a66b08135b"
+  },
+    {
+      "Itemid": "61626135cfb251a7195abe76",
+      "Name": "qui",
+      "Description": "Deserunt eiusmod elit anim eiusmod exercitation culpa nisi occaecat deserunt minim consectetur.",
+      "price": 85,
+      "IsItemOfTheWeek": true,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a343bb12a66b08135b"
+    },
+    {
+      "Itemid": "61626135b30b9b3fbf803c87",
+      "Name": "esse",
+      "Description": "Sunt et adipisicing adipisicing enim culpa veniam dolor sunt mollit cillum Lorem voluptate.",
+      "price": 70,
+      "IsItemOfTheWeek": false,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a35ea6b654b27aaa02"
+    },
+    {
+      "Itemid": "61626135ffbb4582b932da02",
+      "Name": "enim",
+      "Description": "Minim veniam non nulla eiusmod tempor laborum esse eu nostrud irure.",
+      "price": 39,
+      "IsItemOfTheWeek": true,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a384b3f9a1de71ef8f"
+    },
+    {
+      "Itemid": "61626135aa1b8e268d960e68",
+      "Name": "veniam",
+      "Description": "Do commodo deserunt fugiat duis officia minim fugiat minim.",
+      "price": 137,
+      "IsItemOfTheWeek": false,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a39f7c47417b5a9dfb"
+    },
+    {
+      "Itemid": "616261350dc6be1bacce3808",
+      "Name": "Lorem",
+      "Description": "Enim aliquip cupidatat laboris reprehenderit aute nulla.",
+      "price": 28,
+      "IsItemOfTheWeek": true,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a384b3f9a1de71ef8f"
+    },
+    {
+      "Itemid": "6162613587d3e7f57189cc1c",
+      "Name": "amet",
+      "Description": "Lorem culpa consectetur occaecat voluptate.",
+      "price": 116,
+      "IsItemOfTheWeek": true,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a39f7c47417b5a9dfb"
+    },
+    {
+      "Itemid": "6162613582ad11c922db53d4",
+      "Name": "incididunt",
+      "Description": "Eiusmod aliquip sit commodo reprehenderit id aute dolor in dolor duis aliquip anim velit irure.",
+      "price": 73,
+      "IsItemOfTheWeek": true,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a3244468b973bb4476"
+    },
+    {
+      "Itemid": "61626135fca2c9738193a559",
+      "Name": "duis",
+      "Description": "Excepteur in do est aliqua adipisicing exercitation mollit magna aliquip voluptate irure sunt.",
+      "price": 106,
+      "IsItemOfTheWeek": true,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a384b3f9a1de71ef8f"
+    },
+    {
+      "Itemid": "61626135ce6bc64ed1ac5e4f",
+      "Name": "minim",
+      "Description": "Culpa laborum labore elit ipsum amet proident sunt commodo cupidatat incididunt cupidatat et velit.",
+      "price": 20,
+      "IsItemOfTheWeek": true,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a384b3f9a1de71ef8f"
+    },
+    {
+      "Itemid": "61626135dbfdca14b61c8ff1",
+      "Name": "nostrud",
+      "Description": "Aute eiusmod exercitation ea ad in ad incididunt minim.",
+      "price": 36,
+      "IsItemOfTheWeek": false,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a343bb12a66b08135b"
+    },
+    {
+      "Itemid": "616261351b949da7bab8a73f",
+      "Name": "et",
+      "Description": "Velit officia ex nostrud nisi elit culpa nostrud laboris.",
+      "price": 109,
+      "IsItemOfTheWeek": false,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a384b3f9a1de71ef8f"
+    },
+    {
+      "Itemid": "616261353b0b62903db5b4a2",
+      "Name": "sint",
+      "Description": "Laboris nostrud amet magna minim laborum sunt id ea nulla velit.",
+      "price": 66,
+      "IsItemOfTheWeek": true,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a35ea6b654b27aaa02"
+    },
+    {
+      "Itemid": "61626135dd8b13f7d8a599aa",
+      "Name": "incididunt",
+      "Description": "Consequat do nisi fugiat commodo in ex officia eu.",
+      "price": 96,
+      "IsItemOfTheWeek": true,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a384b3f9a1de71ef8f"
+    },
+    {
+      "Itemid": "616261357ef860aade08eec4",
+      "Name": "id",
+      "Description": "Nostrud voluptate amet dolor adipisicing pariatur ad magna do enim culpa dolor pariatur sint adipisicing.",
+      "price": 105,
+      "IsItemOfTheWeek": false,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a39f7c47417b5a9dfb"
+    },
+    {
+      "Itemid": "61626135d023829cc525b981",
+      "Name": "incididunt",
+      "Description": "Deserunt eu aliqua ut pariatur non ea eiusmod Lorem commodo commodo proident mollit.",
+      "price": 156,
+      "IsItemOfTheWeek": false,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a39f7c47417b5a9dfb"
+    },
+    {
+      "Itemid": "616261352d64fee15b371241",
+      "Name": "dolore",
+      "Description": "Proident ut dolore aliquip duis sit nostrud ea quis laboris veniam tempor labore deserunt.",
+      "price": 150,
+      "IsItemOfTheWeek": false,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a3244468b973bb4476"
+    },
+    {
+      "Itemid": "616261352b1bc478276c8852",
+      "Name": "id",
+      "Description": "Eiusmod aliqua occaecat exercitation ipsum non ut laborum voluptate.",
+      "price": 192,
+      "IsItemOfTheWeek": false,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a343bb12a66b08135b"
+    },
+    {
+      "Itemid": "616261359be748e7a0c65a6b",
+      "Name": "labore",
+      "Description": "Voluptate enim incididunt elit do aliquip incididunt deserunt est.",
+      "price": 42,
+      "IsItemOfTheWeek": false,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a3244468b973bb4476"
+    },
+    {
+      "Itemid": "61626135be441303da868b6e",
+      "Name": "nulla",
+      "Description": "Lorem et adipisicing sit reprehenderit officia proident ullamco id Lorem esse laboris.",
+      "price": 161,
+      "IsItemOfTheWeek": false,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a3244468b973bb4476"
+    },
+    {
+      "Itemid": "6162613513845ddbc4a2f030",
+      "Name": "proident",
+      "Description": "Incididunt Lorem ullamco quis Lorem ad in pariatur ea.",
+      "price": 23,
+      "IsItemOfTheWeek": true,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a39f7c47417b5a9dfb"
+    },
+    {
+      "Itemid": "61626135be64dfdd81f26276",
+      "Name": "dolor",
+      "Description": "Enim nostrud et incididunt reprehenderit elit occaecat dolore dolore eu sint enim consequat culpa.",
+      "price": 151,
+      "IsItemOfTheWeek": true,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a35ea6b654b27aaa02"
+    },
+    {
+      "Itemid": "616261359ccf5ed7e79e5e6e",
+      "Name": "ad",
+      "Description": "Qui sit ullamco dolor labore aliquip ipsum nostrud aliqua sint pariatur fugiat quis voluptate.",
+      "price": 30,
+      "IsItemOfTheWeek": true,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a343bb12a66b08135b"
+    },
+    {
+      "Itemid": "61626135392c8bb6c15d2c33",
+      "Name": "ullamco",
+      "Description": "Laboris consectetur officia dolor consequat Lorem eu veniam.",
+      "price": 31,
+      "IsItemOfTheWeek": false,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a343bb12a66b08135b"
+    },
+    {
+      "Itemid": "61626135ae940e15ea1976e6",
+      "Name": "dolor",
+      "Description": "Nisi nostrud deserunt labore anim Lorem ex occaecat mollit tempor.",
+      "price": 47,
+      "IsItemOfTheWeek": false,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a343bb12a66b08135b"
+    },
+    {
+      "Itemid": "61626135b1d4cedb7fc8fb11",
+      "Name": "duis",
+      "Description": "Qui veniam Lorem incididunt non ut ad ea incididunt non.",
+      "price": 42,
+      "IsItemOfTheWeek": false,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a35ea6b654b27aaa02"
+    },
+    {
+      "Itemid": "6162613520e29ef907f7d919",
+      "Name": "nulla",
+      "Description": "Nulla occaecat amet sit occaecat qui irure deserunt velit irure esse pariatur ullamco adipisicing.",
+      "price": 25,
+      "IsItemOfTheWeek": true,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a3244468b973bb4476"
+    },
+    {
+      "Itemid": "61626135179e7f2326d41757",
+      "Name": "qui",
+      "Description": "Quis enim non minim pariatur.",
+      "price": 182,
+      "IsItemOfTheWeek": true,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a343bb12a66b08135b"
+    },
+    {
+      "Itemid": "61626135a78e2aa5e43145c5",
+      "Name": "sint",
+      "Description": "Amet amet elit mollit nostrud eu labore reprehenderit irure ad ullamco voluptate.",
+      "price": 132,
+      "IsItemOfTheWeek": true,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a3244468b973bb4476"
+    },
+    {
+      "Itemid": "616261350871620f7f83d1bc",
+      "Name": "pariatur",
+      "Description": "Duis ut amet commodo velit occaecat ea.",
+      "price": 141,
+      "IsItemOfTheWeek": false,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a39f7c47417b5a9dfb"
+    },
+    {
+      "Itemid": "61626135e501c7e86771773b",
+      "Name": "reprehenderit",
+      "Description": "Non ipsum quis exercitation qui ea tempor ullamco culpa irure aliquip ut enim occaecat.",
+      "price": 25,
+      "IsItemOfTheWeek": true,
+      "InStock": true,
+      "ImageUrl": "http://placehold.it/32x32",
+      "CategoryId": "616256a343bb12a66b08135b"
+    }
+]

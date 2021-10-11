@@ -1,0 +1,22 @@
+[
+  {
+    "UserTypeId": "6162f9646ebf66d10d3588a2",
+    "Title": "Affiliate",
+    "DiscountId": "616259b64b2c921b9a49ebfd"
+  },
+  {
+    "UserTypeId": "6162f964e95cc8eb42b8ab5a",
+    "Title": "NewComer",
+    "DiscountId": "616259b672d36ed7c501bf4d"
+  },
+  {
+    "UserTypeId": "6162f96474c4dbd3804b336a",
+    "Title": "Regular",
+    "DiscountId": "616259b68616a5cfc24366c9"
+  },
+  {
+    "UserTypeId": "6162f96498a14527c8df6826",
+    "Title": "Employee",
+    "DiscountId": "616259b68215eb0bb5713d9a"
+  }
+]

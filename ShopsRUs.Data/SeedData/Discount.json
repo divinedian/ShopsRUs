@@ -1,0 +1,22 @@
+[
+  {
+    "Discountid": "616259b68616a5cfc24366c9",
+    "Discounttype": "Regular",
+    "Percentage": 0.05
+  },
+  {
+    "Discountid": "616259b64b2c921b9a49ebfd",
+    "Discounttype": "Affiliate",
+    "Percentage": 0.1
+  },
+  {
+    "Discountid": "616259b672d36ed7c501bf4d",
+    "Discounttype": "NewComer",
+    "Percentage": 0
+  },
+  {
+    "Discountid": "616259b68215eb0bb5713d9a",
+    "Discounttype": "Employee",
+    "Percentage": 0.3
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "Customerid": "616252908b94fb33a236ea37",
+    "UserTypeId": "6162f9646ebf66d10d3588a2",
+    "firstname": "Eliza",
+    "lastname": "Riley",
+    "username": "Eliza201",
+    "dateregistered": "2016-10-23T12:17:46"
+  },
+  {
+    "Customerid": "6162529038c15394110fbde0",
+    "UserTypeId": "6162f9646ebf66d10d3588a2",
+    "firstname": "Christian",
+    "lastname": "Frost",
+    "username": "Frosty",
+    "dateregistered": "2015-03-13T03:55:46"
+  },
+  {
+    "Customerid": "6162529074cb450da712b474",
+    "UserTypeId": "6162f964e95cc8eb42b8ab5a",
+    "firstname": "Cecelia",
+    "lastname": "Harrell",
+    "username": "Harcece",
+    "dateregistered": "2020-11-18T08:29:48"
+  },
+  {
+    "Customerid": "61625290fc289cc4f15c3209",
+    "UserTypeId": "6162f964e95cc8eb42b8ab5a",
+    "firstname": "Brenda",
+    "lastname": "Hendricks",
+    "username": "BrendHendricks",
+    "dateregistered": "2021-10-04T02:14:01"
+  },
+  {
+    "Customerid": "616252904057425312e326cb",
+    "UserTypeId": "6162f96474c4dbd3804b336a",
+    "firstname": "Sharron",
+    "lastname": "Barton",
+    "username": "SharronStone",
+    "dateregistered": "2020-09-04T10:59:31"
+  },
+  {
+    "Customerid": "61625290b665498a2a296cff",
+    "UserTypeId": "6162f96474c4dbd3804b336a",
+    "firstname": "Eileen",
+    "lastname": "Ramos",
+    "username": "Eileen4all",
+    "dateregistered": "2014-06-21T01:54:58"
+  },
+  {
+    "Customerid": "61625290931a672ba7a89a87",
+    "UserTypeId": "6162f96498a14527c8df6826",
+    "firstname": "Wade",
+    "lastname": "Wiley",
+    "username": "WadeWiley",
+    "dateregistered": "2021-07-11T12:14:35"
+  },
+  {
+    "Customerid": "6162fbf88b44040dffa0665e",
+    "UserTypeId": "6162f96498a14527c8df6826",
+    "firstname": "Lawrence",
+    "lastname": "Perry",
+    "username": "ChildOfGrace",
+    "dateregistered": "2021-07-11T12:14:35"
+  }
+]
