@@ -50,8 +50,8 @@ namespace ShopsRUs.Core.Core.Application.Queries
         }
 
         public int CalculateYearsSinceRegistration(DateTime dateRegister)
-        {
-            return dateRegister.Year - DateTime.Now.Year;
+        {            
+            return Convert.ToInt32(Math.Floor(Convert.ToInt32(( DateTime.Now-dateRegister  ).TotalDays)/365.2));
         }
 
         public async Task<decimal> CalculatePercentageDiscount(Order order)

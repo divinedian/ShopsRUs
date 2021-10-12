@@ -29,15 +29,15 @@ To get a local copy up and running follow these simple example steps.
 Things you need to use the software and how to install them.
 * .NET SDK 5
 	```sh
-
+	https://dotnet.microsoft.com/download/dotnet/5.0
 	```
-* MSSql Server
+* MSSql Server Management Studio
 	```sh
-
+	https://aka.ms/ssmsfullsetup
 	```
 * Web Browser/POSTMAN/INSOMNIA
 	```sh
-
+	https://www.postman.com/downloads/
 	```
 
 ### Installation
@@ -88,7 +88,7 @@ Distributed under the MIT License.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@linkedIn_handle](www.linkedin.com/in/dianaetukekwere) - ekwerediana@gmail.com
+Diana Ekwere - [@linkedIn_handle](www.linkedin.com/in/dianaetukekwere) - ekwerediana@gmail.com
 
 Project Link: [ShopsRUs API](https://github.com/divinedian/ShopsRUs.git)
 
