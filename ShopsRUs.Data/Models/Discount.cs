@@ -11,6 +11,7 @@ namespace ShopsRUs.Data.Models
     {
         public string DiscountId { get; set; } = Guid.NewGuid().ToString();
         public string DiscountType { get; set; }
+        public int Duration { get; set; }
         public decimal Percentage { get; set; }
         public UserType UserType { get; set; }
     }

@@ -50,9 +50,7 @@ namespace ShopsRUs.Core.Core.Application.Commands
             //confirm that the usertype exists
             var userType = _context.UserTypes.FirstOrDefault(u => u.Title == request.UserTypeTitle);
             if (userType==null) return (false, $"There is no usertype with title: {request.UserTypeTitle}");
-
-            if (userType.Title == "Regular") return (false, "You can only become a regular user, after 2 years of registration, select the NewComer option");
-
+           
             customerToCreate.UserType = userType;
             customerToCreate.UserTypeId = string.Empty;
             customerToCreate.UserTypeId = userType.UserTypeId;

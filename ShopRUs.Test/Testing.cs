@@ -127,19 +127,22 @@ namespace ShopsRUs.Test
                 {
                     DiscountId = "54321",
                     DiscountType = "Customer",
-                    Percentage = 0.25M
+                    Percentage = 0.25M,
+                    Duration = 0
                 },
                 new Discount
                 {
                     DiscountId = "54322",
-                    DiscountType = "Regular",
-                    Percentage = 0.05M
+                    DiscountType = "Employee",
+                    Percentage = 0.05M,
+                    Duration = 1
                 },
                 new Discount
                 {
                     DiscountId = "54323",
                     DiscountType = "Affiliate",
-                    Percentage = 0.1M
+                    Percentage = 0.1M,
+                    Duration = 0
                 }
             };
             return new List<UserType>

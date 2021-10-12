@@ -19,10 +19,10 @@ namespace ShopsRUs.Test.QueryTests
 
             var query = new GetDiscountPercentageByTypeQuery
             {
-                UserType = "Customer"
+                DiscountType = "Customer"
             };
 
-            var result = await SendAsync(query);
+            var (result,message) = await SendAsync(query);
 
             result.Should().Be(0.25M);
         }
@@ -34,10 +34,10 @@ namespace ShopsRUs.Test.QueryTests
 
             var query = new GetDiscountPercentageByTypeQuery
             {
-                UserType = "Customerr"
+                DiscountType = "Customerr"
             };
 
-            var result = await SendAsync(query);
+            var (result,message) = await SendAsync(query);
 
             result.Should().Be(0);
         }

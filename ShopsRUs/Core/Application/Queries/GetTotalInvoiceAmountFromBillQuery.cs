@@ -18,7 +18,8 @@ namespace ShopsRUs.Core.Core.Application.Queries
     public class TotalInvoiceAmountFromBillHandler : IRequestHandler<GetTotalInvoiceAmountFromBillQuery, decimal>
     {
         private readonly AppDbContext _context;
-        private readonly IMediator _mediator;        private readonly GetDiscountPercentageByTypeQuery _percentageQuery;
+        private readonly IMediator _mediator;        
+        private readonly GetDiscountPercentageByTypeQuery _percentageQuery;
 
         public TotalInvoiceAmountFromBillHandler(AppDbContext context, IMediator mediator)
         {
@@ -45,29 +46,40 @@ namespace ShopsRUs.Core.Core.Application.Queries
                            .Where(o => o.OrderId == request.orderID)
                            .SingleOrDefaultAsync();
             if (order == null) return 0;
-            else return await calculatePercentageDiscount(order);
+            else return await CalculatePercentageDiscount(order);
         }
 
-        public async Task<decimal> calculatePercentageDiscount(Order order)
+        public int CalculateYearsSinceRegistration(DateTime dateRegister)
         {
-            decimal forDiscount = 0;
-            decimal NoDiscount = 0;
-            decimal total = 0;
+            return dateRegister.Year - DateTime.Now.Year;
+        }
 
-            var percentage = await _mediator.Send(new GetDiscountPercentageByTypeQuery { UserType = order.Customer.UserType.Title });
+        public async Task<decimal> CalculatePercentageDiscount(Order order)
+        {
+            decimal forPercentageDiscount = 0;
+            decimal NoPercentageDiscount = 0;
+            decimal percentage = 0;
+            var discount = await GetDiscount.GetDiscountFromType(order.Customer.UserType.Title,_context);
+
+            if (CalculateYearsSinceRegistration(order.Customer.DateRegistered) >= discount.Duration)
+            {
+                percentage = discount.Percentage;
+            }
             foreach (var orderDetail in order.OrderDetails)
             {
                 if (orderDetail.Item.Category.CategoryName == "Grocery")
                 {
-                    NoDiscount += (orderDetail.Price * orderDetail.Quantity);
+                    NoPercentageDiscount += (orderDetail.Price * orderDetail.Quantity);
                 }
                 else
                 {
-                    forDiscount += (orderDetail.Price * orderDetail.Quantity);
+                    forPercentageDiscount += (orderDetail.Price * orderDetail.Quantity);
                 }
             }
-            total = forDiscount + NoDiscount - (forDiscount * percentage);
-            var grandTotal = total - (Math.Floor(total / 100) * 5);
+            var total = forPercentageDiscount + NoPercentageDiscount;
+            var percentageDiscount = forPercentageDiscount * percentage;
+            var nonPercentageDiscount = Math.Floor(total / 100) * 5;
+            var grandTotal = total - (percentageDiscount+nonPercentageDiscount);
             return grandTotal;
         }
     }

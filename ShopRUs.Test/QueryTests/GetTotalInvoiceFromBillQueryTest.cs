@@ -18,7 +18,7 @@ namespace ShopsRUs.Test.QueryTests
             };
             var result = await SendAsync(query);
 
-            result.Should().Be(1255);
+            result.Should().Be(1250);
         }
 
         [Test]

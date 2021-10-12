@@ -5,13 +5,8 @@
     "DiscountId": "616259b64b2c921b9a49ebfd"
   },
   {
-    "UserTypeId": "6162f964e95cc8eb42b8ab5a",
-    "Title": "NewComer",
-    "DiscountId": "616259b672d36ed7c501bf4d"
-  },
-  {
     "UserTypeId": "6162f96474c4dbd3804b336a",
-    "Title": "Regular",
+    "Title": "Customer",
     "DiscountId": "616259b68616a5cfc24366c9"
   },
   {

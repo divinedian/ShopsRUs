@@ -23,6 +23,7 @@ namespace ShopsRUs.Core.Core.Application.Queries
         public async Task<List<Customer>> Handle(GetAllCustomersQuery request, CancellationToken cancellationToken)
         {
             var customers = await _context.Customers.Include(c => c.Orders)
+                                        .ThenInclude(o=>o.OrderDetails)
                                         .Include(c => c.UserType)
                                         .ThenInclude(u=>u.Discount)
                                         .ToListAsync();

@@ -2,25 +2,26 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using ShopsRUs.Data;
+using ShopsRUs.Data.Models;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShopsRUs.Core.Core.Application.Queries
 {
-    public class GetDiscountPercentageByTypeQuery : IRequest<decimal>
+    public class GetDiscountPercentageByTypeQuery : IRequest<(decimal,string)>
     {
-        public string UserType { get; set; }
+        public string DiscountType { get; set; }
     }
 
     public class GetDiscountPercentageByTypeQueryValidator : AbstractValidator<GetDiscountPercentageByTypeQuery>
     {
         public GetDiscountPercentageByTypeQueryValidator()
         {
-            RuleFor(x => x.UserType).NotNull().NotEmpty();
+            RuleFor(x => x.DiscountType).NotNull().NotEmpty();
         }
     }
-    public class DiscountPercentageByTypeQueryHandler : IRequestHandler<GetDiscountPercentageByTypeQuery, decimal>
+    public class DiscountPercentageByTypeQueryHandler : IRequestHandler<GetDiscountPercentageByTypeQuery, (decimal,string)>
     {
         private readonly AppDbContext _context;
 
@@ -28,14 +29,21 @@ namespace ShopsRUs.Core.Core.Application.Queries
         {
             _context = context;
         }
-        public async Task<decimal> Handle(GetDiscountPercentageByTypeQuery request, CancellationToken cancellationToken)
+        public async Task<(decimal,string)> Handle(GetDiscountPercentageByTypeQuery request, CancellationToken cancellationToken)
         {
-            var discount = await _context.Discounts.Include(d => d.UserType)
-                                        .Where(d => d.UserType.Title == request.UserType)
-                                        .SingleOrDefaultAsync();
+            var discount =await GetDiscount.GetDiscountFromType(request.DiscountType,_context);
             if (discount != null)
-                return discount.Percentage;
-            return 0;
+                return (discount.Percentage,"");
+            return (0,"discountType does not exist");
+        }        
+    }
+    public static class GetDiscount
+    {
+        public static async Task<Discount> GetDiscountFromType(string discountType, AppDbContext _context)
+        {
+            return await _context.Discounts.Include(d => d.UserType)
+                                        .Where(d => d.DiscountType == discountType)
+                                        .SingleOrDefaultAsync();
         }
     }
 }
