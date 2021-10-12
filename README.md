@@ -88,7 +88,7 @@ Distributed under the MIT License.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@linkedIn_handle](www.linkedin.com/in/dianaetukekwere) - ekwerediana@gmail.com
+Diana Ekwere - [@linkedIn_handle](www.linkedin.com/in/dianaetukekwere) - ekwerediana@gmail.com
 
 Project Link: [ShopsRUs API](https://github.com/divinedian/ShopsRUs.git)
 
