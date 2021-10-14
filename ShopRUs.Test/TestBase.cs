@@ -11,5 +11,10 @@ namespace ShopsRUs.Test
         {
             await ResetDbState();
         }
+        [TearDown]
+        public async Task TearDownAsync()
+        {
+            await ResetDbState();
+        }
     }
 }

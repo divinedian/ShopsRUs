@@ -58,6 +58,33 @@ Things you need to use the software and how to install them.
 		```
 5. Click run within visual studio
 
+### Try out Some End Points
+1. Create a discount type using the `AddDiscountType` endpoint. This will save a usertype name same as the discount type.
+2. Create a customer using the `CreateCustomer` endpoint. This will return the customerid e.g. `3cc165e2-e8f5-425f-841a-b1661debba6e`, save this for the order process.
+3. Create a category using the `CreateCategory` endpoint. This will return a Categoryid e.g. `3cc165e2-e8f5-425f-841a-b1661debba6e` which you should save for the process of adding items.
+4. Create an item using the categoryId from step3 above.
+5. Using the customerId from step2, and some of the items saved in step4, place an order using the `GetTotalInvoiceAmount` endpoint
+	*A sample request body for step 5*
+	```sh
+	{
+	  "customerId": "3cc165e2-e8f5-425f-841a-b1661debba6e",
+	  "orderItems": [
+		{
+		  "item": "Meat",
+		  "quantities": 2
+		},
+		{
+		  "item": "Vegetable",
+		  "quantities": 9
+		},
+		{
+		  "item": "Prawns",
+		  "quantities": 2
+		}
+	  ]
+	}
+	```
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->

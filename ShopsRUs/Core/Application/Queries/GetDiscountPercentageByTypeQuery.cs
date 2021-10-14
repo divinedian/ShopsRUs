@@ -1,15 +1,14 @@
 ﻿using FluentValidation;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
-using ShopsRUs.Data;
+using ShopsRUs.Core.Core.Dao;
 using ShopsRUs.Data.Models;
-using System.Linq;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShopsRUs.Core.Core.Application.Queries
 {
-    public class GetDiscountPercentageByTypeQuery : IRequest<(decimal,string)>
+    public class GetDiscountPercentageByTypeQuery : IRequest<BaseResponse<decimal>>
     {
         public string DiscountType { get; set; }
     }
@@ -21,29 +20,32 @@ namespace ShopsRUs.Core.Core.Application.Queries
             RuleFor(x => x.DiscountType).NotNull().NotEmpty();
         }
     }
-    public class DiscountPercentageByTypeQueryHandler : IRequestHandler<GetDiscountPercentageByTypeQuery, (decimal,string)>
+    public class DiscountPercentageByTypeQueryHandler : IRequestHandler<GetDiscountPercentageByTypeQuery, BaseResponse<decimal>>
     {
-        private readonly AppDbContext _context;
+        private readonly IDiscountDao _discountDao;
 
-        public DiscountPercentageByTypeQueryHandler(AppDbContext context)
+        public DiscountPercentageByTypeQueryHandler(IDiscountDao discountDao)
         {
-            _context = context;
+            _discountDao = discountDao;
         }
-        public async Task<(decimal,string)> Handle(GetDiscountPercentageByTypeQuery request, CancellationToken cancellationToken)
+        public async Task<BaseResponse<decimal>> Handle(GetDiscountPercentageByTypeQuery request, CancellationToken cancellationToken)
         {
-            var discount =await GetDiscount.GetDiscountFromType(request.DiscountType,_context);
-            if (discount != null)
-                return (discount.Percentage,"");
-            return (0,"discountType does not exist");
+            try
+            {
+                var resp = await _discountDao.GetDiscountPercentage(request.DiscountType);
+                return new BaseResponse<decimal>
+                {
+                    Data = resp,
+                    Message = "successful"
+                };
+            }
+            catch(Exception e)
+            {
+                return new BaseResponse<decimal>
+                {
+                    Message = e.Message,
+                };
+            }
         }        
-    }
-    public static class GetDiscount
-    {
-        public static async Task<Discount> GetDiscountFromType(string discountType, AppDbContext _context)
-        {
-            return await _context.Discounts.Include(d => d.UserType)
-                                        .Where(d => d.DiscountType == discountType)
-                                        .SingleOrDefaultAsync();
-        }
     }
 }

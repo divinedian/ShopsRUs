@@ -74,6 +74,16 @@ namespace ShopsRUs.Test
             return await mediator.Send(request);
         }
 
+        public async static Task Remove<TEntity>(TEntity entity)
+            where TEntity : class
+        {
+            using var scope = _scopeFactory.CreateScope();
+            var context = scope.ServiceProvider.GetService<AppDbContext>();
+            context.Remove(entity);
+            await context.SaveChangesAsync();
+        }
+
+
         public static async Task AddRangeAsync<TEntity>(List<TEntity> entities)
             where TEntity : class
         {
@@ -93,6 +103,11 @@ namespace ShopsRUs.Test
         public static void WithUserType()
         {
             AddRangeAsync(SeedUserType()).GetAwaiter().GetResult();
+        }
+
+        public static void WithCategories()
+        {
+            AddRangeAsync(SeedCategories()).GetAwaiter().GetResult();
         }
 
         public static void WithOrder()
@@ -184,22 +199,24 @@ namespace ShopsRUs.Test
                     {
                         new Item
                         {
+                            CategoryId = "616256a384b3f9a1de71ef8f",
                             Description = "asdfghgjhhgfsdaAFSDGFNHGFGDFHMFGDFSD",
                             InStock = true,
                             IsItemOfTheWeek = true,
                             ItemId = "2390",
                             Price = 56,
-                            Name = "Bench",
+                            Name = "Sneakers",
                             ImageUrl = "sdghjkhgdfsbnbf"
                         },
                         new Item
                         {
+                            CategoryId = "616256a384b3f9a1de71ef8f",
                             Description = "asdfghgjhhgfsdaAFSDGFNHGFGDFHMFGDFSD",
                             InStock = true,
                             IsItemOfTheWeek = false,
                             ItemId = "2391",
                             Price = 234,
-                            Name = "Cart",
+                            Name = "Trainers",
                             ImageUrl = "sdghjkhgdfsbnbf"
                         }
                     }
@@ -301,6 +318,37 @@ namespace ShopsRUs.Test
                     }
                 }
             };
+        }
+
+        public static void RemoveProducts()
+        {
+            using var scope = _scopeFactory.CreateScope();
+            var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+            var custs = context.Customers;
+            foreach (var cust in custs)
+            {
+                foreach(var ord in cust.Orders)
+                {
+                    foreach(var ordD in ord.OrderDetails)
+                    {
+                        context.OrderDetails.Remove(ordD);
+                    }
+                    context.Orders.Remove(ord);
+                }
+                context.Customers.Remove(cust);
+            }
+
+            var cat = context.Categories;
+            foreach(var c in cat)
+            {
+                foreach(var i in c.Items)
+                {
+                    context.Items.Remove(i);
+                }
+                context.Categories.Remove(c);
+            }
+            
         }
     }
 }

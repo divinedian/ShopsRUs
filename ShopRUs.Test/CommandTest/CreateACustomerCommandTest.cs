@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ShopsRUs.Test.CommandTest
 {
     using static Testing;
-    public class CreateACustomerCommandTest: TestBase
+    public class CreateACustomerCommandTest : TestBase
     {
         [Test]
         public async Task ShouldCreateACustomer()
@@ -23,11 +23,8 @@ namespace ShopsRUs.Test.CommandTest
                 UserName = "DivineDee",
                 UserTypeTitle = "Affiliate"
             };
-            var (isCreated, message) = await SendAsync(query);
-
-            isCreated.Should().BeTrue();
-            message.Should().Be("User Created");
-
+            var resp = await SendAsync(query);
+            resp.Message.Should().Be("User created successfully. See Id as data");
         }
 
         [Test]
@@ -42,17 +39,16 @@ namespace ShopsRUs.Test.CommandTest
                 UserTypeTitle = "Affiliate"
             };
 
-            var (isCreated, message) = await SendAsync(query);
-            isCreated.Should().BeTrue();
-            message.Should().Be("User Created");
-            var (isReCreated, message2) = await SendAsync(query);
-            isReCreated.Should().BeFalse();
-            message2.Should().Be("Username already exists");
+            var resp = await SendAsync(query);
+            resp.Message.Should().Be("User created successfully. See Id as data");
+            //Task.Delay(10000);
+            var respAgain = await SendAsync(query);
+            respAgain.Message.Should().Be("Username already exists");
         }
 
         [Test]
         public async Task ShouldNotAllowUserTypeThatDoesNotExists()
-        {            
+        {
             var query = new CreateACustomerCommand
             {
                 FirstName = "Diana",
@@ -61,9 +57,8 @@ namespace ShopsRUs.Test.CommandTest
                 UserTypeTitle = "Affiliate"
             };
 
-            var (isCreated, message) = await SendAsync(query);
-            isCreated.Should().BeFalse();
-            message.Should().Be("There is no usertype with title: Affiliate");
+             var resp = await SendAsync(query);
+            resp.Message.Should().Be($"There is no usertype with title: {query.UserTypeTitle}");
         }
-        }
+    }
 }

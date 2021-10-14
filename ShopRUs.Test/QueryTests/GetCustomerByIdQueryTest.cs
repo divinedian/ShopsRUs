@@ -23,11 +23,11 @@ namespace ShopsRUs.Test
             var result = await SendAsync(Query);
 
             result.Should().NotBeNull();
-            result.CustomerId.Should().Be("12345");
-            result.FirstName.Should().Be("Diana");
-            result.LastName.Should().Be("Ekwere");
-            result.UserName.Should().Be("Divinedee");
-            result.Orders.Count.Should().Be(3);
+            result.Data.CustomerId.Should().Be("12345");
+            result.Data.FirstName.Should().Be("Diana");
+            result.Data.LastName.Should().Be("Ekwere");
+            result.Data.UserName.Should().Be("Divinedee");
+            result.Data.Orders.Count.Should().Be(3);
         }
 
         [Test]
@@ -40,7 +40,7 @@ namespace ShopsRUs.Test
             };
             var result = await SendAsync(Query);
 
-            result.Should().BeNull();
+            result.Data.Should().BeNull();
         }
     }
 }

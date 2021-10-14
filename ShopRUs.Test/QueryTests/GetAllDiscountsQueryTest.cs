@@ -1,10 +1,6 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
 using ShopsRUs.Core.Core.Application.Queries;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ShopsRUs.Test.QueryTests
@@ -21,7 +17,7 @@ namespace ShopsRUs.Test.QueryTests
 
             var result = await SendAsync(query);
 
-            result.Count.Should().NotBe(0);
+            result.Data.Count.Should().NotBe(0);
         }
 
         [Test]
@@ -32,7 +28,7 @@ namespace ShopsRUs.Test.QueryTests
 
             var result = await SendAsync(query);
 
-            result.Count.Should().Be(0);
+            result.Data.Count.Should().Be(0);
         }
     }
 }

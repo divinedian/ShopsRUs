@@ -18,7 +18,7 @@ namespace ShopsRUs.Test.CommandTest
             };
 
             var result = await SendAsync(query);
-            result.Should().BeTrue();
+            result.Data.Should().BeTrue();
         }
     }
 }

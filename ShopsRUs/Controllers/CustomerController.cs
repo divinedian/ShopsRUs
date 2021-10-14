@@ -1,11 +1,10 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ShopsRUs.Core.Core.Application.Commands;
 using ShopsRUs.Core.Core.Application.Queries;
-using System;
+using ShopsRUs.Data.Models;
 using System.Collections.Generic;
-using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace ShopsRUs.Core.Controllers
@@ -23,37 +22,36 @@ namespace ShopsRUs.Core.Controllers
             _query = customersQuery;
         }
 
+        [ProducesResponseType(typeof(BaseResponse<List<Customer>>),(int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(BaseResponse), (int)HttpStatusCode.BadRequest)]
         [HttpGet("GetAllCustomers")]
         public async Task<IActionResult> GetAllCustomers()
         {
-            //var query = new GetAllCustomersQuery();
-            var Customers = await _mediator.Send(_query);
-            if (Customers.Count == 0) return BadRequest("You have no customers right now");
-            return Ok(Customers);
+            return Ok(await _mediator.Send(_query));
         }
 
+        [ProducesResponseType(typeof(BaseResponse<Customer>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(BaseResponse), (int)HttpStatusCode.BadRequest)]
         [HttpGet("GetCustomerByID")]
         public async Task<IActionResult> GetCustomerById([FromQuery] GetCustomerByIDQuery query)
         {
-            var Customer = await _mediator.Send(query);
-            if (Customer == null) return BadRequest($"You have no customer with Id: {query.CustomerId}");
-            return Ok(Customer);
+            return Ok(await _mediator.Send(query));
         }
 
-        [HttpGet("GetCustomerByName")]
-        public async Task<IActionResult> GetCustomerByName([FromQuery] GetCustomerByNameQuery query)
+        [ProducesResponseType(typeof(BaseResponse<Customer>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(BaseResponse), (int)HttpStatusCode.BadRequest)]
+        [HttpGet("GetCustomerByUserName")]
+        public async Task<IActionResult> GetCustomerByUserName([FromQuery] GetCustomerByNameQuery query)
         {
-            var Customer = await _mediator.Send(query);
-            if (Customer == null) return BadRequest($"You have no customer with name: {query.Name}");
-            return Ok(Customer);
+            return Ok(await _mediator.Send(query));
         }
 
+        [ProducesResponseType(typeof(BaseResponse<string>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(BaseResponse), (int)HttpStatusCode.BadRequest)]
         [HttpPost("CreateCustomer")]
         public async Task<IActionResult> CreateACustomer([FromQuery] CreateACustomerCommand command)
         {
-            var (isCreated,message)= await _mediator.Send(command);
-            if (!isCreated) return BadRequest($"{message}");
-            return Ok();
+            return Ok(await _mediator.Send(command));
         }
     }
 }

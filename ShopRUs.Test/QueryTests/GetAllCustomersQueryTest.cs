@@ -20,8 +20,8 @@ namespace ShopsRUs.Test
             var Query = new GetAllCustomersQuery();
             var result = await SendAsync(Query);
 
-            result.Count.Should().NotBe(0);
-            result.Count.Should().Be(1);
+            result.Data.Count.Should().NotBe(0);
+            result.Data.Count.Should().Be(1);
         }
 
         [Test]
@@ -30,7 +30,7 @@ namespace ShopsRUs.Test
             var Query = new GetAllCustomersQuery();
             var result = await SendAsync(Query);
 
-            result.Count.Should().Be(0);
+            result.Data.Count.Should().Be(0);
         }
     }
 }

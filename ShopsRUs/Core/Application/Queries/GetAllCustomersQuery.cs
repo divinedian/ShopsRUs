@@ -1,35 +1,37 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using ShopsRUs.Core.Core.Dao;
 using ShopsRUs.Data;
 using ShopsRUs.Data.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShopsRUs.Core.Core.Application.Queries
 {
-    public class GetAllCustomersQuery : IRequest<List<Customer>>
+    public class GetAllCustomersQuery : IRequest<BaseResponse<List<Customer>>>
     {
     }
 
-    public class AllCustomersQueryHandler : IRequestHandler<GetAllCustomersQuery, List<Customer>>
+    public class AllCustomersQueryHandler : IRequestHandler<GetAllCustomersQuery, BaseResponse<List<Customer>>>
     {
         private readonly AppDbContext _context;
+        private readonly ICustomerDao _customerDao;
 
-        public AllCustomersQueryHandler(AppDbContext context)
+        public AllCustomersQueryHandler(AppDbContext context, ICustomerDao customerDao)
         {
             _context = context;
+            _customerDao = customerDao;
         }
-        public async Task<List<Customer>> Handle(GetAllCustomersQuery request, CancellationToken cancellationToken)
+        public Task<BaseResponse<List<Customer>>> Handle(GetAllCustomersQuery request, CancellationToken cancellationToken)
         {
-            var customers = await _context.Customers.Include(c => c.Orders)
-                                        .ThenInclude(o=>o.OrderDetails)
-                                        .Include(c => c.UserType)
-                                        .ThenInclude(u=>u.Discount)
-                                        .ToListAsync();
-            return customers;
+            var customers = _customerDao.GetAllCustomers().Result;
+            return Task.FromResult(new BaseResponse<List<Customer>>
+            {
+                Message = "Customers retrieved successfully",
+                Data = customers
+            });
         }
-
-        //return new List<Customer>();
     }
 }

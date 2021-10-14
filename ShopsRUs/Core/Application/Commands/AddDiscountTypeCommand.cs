@@ -1,19 +1,19 @@
 ﻿using AutoMapper;
 using FluentValidation;
 using MediatR;
-using ShopsRUs.Data;
+using ShopsRUs.Core.Core.Dao;
 using ShopsRUs.Data.Models;
 using System;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace ShopsRUs.Core.Core.Application.Commands
 {
-    public class AddDiscountTypeCommand :IRequest<bool>
+    public class AddDiscountTypeCommand :IRequest<BaseResponse<bool>>
     {
         public string DiscountType { get; set; }
         public decimal Percentage { get; set; }
+        public int Duration { get; set; }
     }
 
     public class AddDiscountTypeCommandValidator : AbstractValidator<AddDiscountTypeCommand>
@@ -26,40 +26,36 @@ namespace ShopsRUs.Core.Core.Application.Commands
         }
     }  
 
-    public class DiscountTypeCommandHandler : IRequestHandler<AddDiscountTypeCommand, bool>
+    public class DiscountTypeCommandHandler : IRequestHandler<AddDiscountTypeCommand, BaseResponse<bool>>
     {
         private readonly IMapper _mapper;
-        private readonly AppDbContext _context;
+        private readonly IDiscountDao _discountDao;
 
-        public DiscountTypeCommandHandler(IMapper mapper, AppDbContext context)
+        public DiscountTypeCommandHandler(IMapper mapper, IDiscountDao discountDao)
         {
             _mapper = mapper;
-            _context = context;
+            _discountDao = discountDao;
         }
-        public async Task<bool> Handle(AddDiscountTypeCommand request, CancellationToken cancellationToken)
+        public async Task<BaseResponse<bool>> Handle(AddDiscountTypeCommand request, CancellationToken cancellationToken)
         {
-            var discountTypeToAdd = _mapper.Map<Discount>(request);
-            discountTypeToAdd.UserType = new UserType();
-            discountTypeToAdd.UserType.Title = discountTypeToAdd.DiscountType;
-            discountTypeToAdd.UserType.UserTypeId = Guid.NewGuid().ToString();
-
-            if (_context.Discounts.Any(d => d.DiscountType == request.DiscountType))
+            try
             {
-                return false;
+                var discountTypeToAdd = _mapper.Map<Discount>(request);
+                await _discountDao.AddDiscount(discountTypeToAdd);
+                return new BaseResponse<bool>
+                {
+                    Message = "new Discount type added successfully",
+                    Data = true
+                };
             }
-
-            _context.Discounts.Add(discountTypeToAdd);
-            return await SaveAsync();
-        }
-
-        private async Task<bool> SaveAsync()
-        {
-            var ValueReturned = false;
-            if (await _context.SaveChangesAsync() > 0)
-                ValueReturned = true;
-            else
-                ValueReturned = false;
-            return ValueReturned;
+            catch(Exception e)
+            {
+                return new BaseResponse<bool>
+                {
+                    Message = e.Message,
+                    Data = false
+                };
+            }
         }
     }
 }

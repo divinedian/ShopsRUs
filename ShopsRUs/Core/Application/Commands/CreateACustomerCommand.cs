@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using FluentValidation;
 using MediatR;
+using ShopsRUs.Core.Core.Dao;
 using ShopsRUs.Data;
 using ShopsRUs.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -10,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ShopsRUs.Core.Core.Application.Commands
 {
-    public class CreateACustomerCommand : IRequest<(bool, string)>
+    public class CreateACustomerCommand : IRequest<BaseResponse<string>>
     {
         public string UserName { get; set; }
         public string FirstName { get; set; }
@@ -29,48 +31,38 @@ namespace ShopsRUs.Core.Core.Application.Commands
         }
     }
 
-    public class ACustomerCommandHandler : IRequestHandler<CreateACustomerCommand, (bool, string)>
+    public class ACustomerCommandHandler : IRequestHandler<CreateACustomerCommand, BaseResponse<string>>
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
+        private readonly ICustomerDao _customerDao;
 
-        public ACustomerCommandHandler(AppDbContext context, IMapper mapper)
+        public ACustomerCommandHandler(AppDbContext context, IMapper mapper, ICustomerDao customerDao)
         {
+            _customerDao = customerDao;
             _mapper = mapper;
             _context = context;
         }
 
-        public async Task<(bool, string)> Handle(CreateACustomerCommand request, CancellationToken cancellationToken)
+        public async Task<BaseResponse<string>> Handle(CreateACustomerCommand request, CancellationToken cancellationToken)
         {
-            var customerToCreate = _mapper.Map<Customer>(request);
-
-            //confirm if a customer with same username already exists in database
-            if (_context.Customers.Any(c => c.UserName == request.UserName)) return (false, "Username already exists");
-
-            //confirm that the usertype exists
-            var userType = _context.UserTypes.FirstOrDefault(u => u.Title == request.UserTypeTitle);
-            if (userType==null) return (false, $"There is no usertype with title: {request.UserTypeTitle}");
-           
-            customerToCreate.UserType = userType;
-            customerToCreate.UserTypeId = string.Empty;
-            customerToCreate.UserTypeId = userType.UserTypeId;
-            customerToCreate.Orders = new List<Order>();
-
-            _context.Customers.Add(customerToCreate);
-
-            var resp = await SaveAsync();
-            if (resp) return (true, "User Created");
-            return (false, "Unsuccessful");
-        }
-
-        private async Task<bool> SaveAsync()
-        {
-            var ValueReturned = false;
-            if (await _context.SaveChangesAsync() > 0)
-                ValueReturned = true;
-            else
-                ValueReturned = false;
-            return ValueReturned;
+            try
+            {
+                var customerToCreate = _mapper.Map<Customer>(request);
+                var data = await _customerDao.CreateCustomer(customerToCreate, request.UserTypeTitle);
+                return new BaseResponse<string>
+                {
+                    Data = data,
+                    Message = $"User created successfully. See Id as data"
+                };
+            }
+            catch (Exception e)
+            {
+                return new BaseResponse<string>
+                {                    
+                    Message = e.Message
+                };
+            }
         }
     }
 }

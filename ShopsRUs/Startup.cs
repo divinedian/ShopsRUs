@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ShopsRUs.Core.Core.Application.Queries;
+using ShopsRUs.Core.Core.Dao;
 using ShopsRUs.Data;
 using System.Reflection;
 
@@ -44,6 +45,9 @@ namespace ShopsRUs.Core
             services.AddScoped<GetAllCustomersQuery>();
             services.AddScoped<GetAllDiscountsQuery>();
             services.AddScoped<GetDiscountPercentageByTypeQuery>();
+            services.AddScoped<IDiscountDao, DiscountDao>();
+            services.AddScoped<ICustomerDao, CustomerDao>();
+            services.AddScoped<IInvoiceDao, InvoiceDao>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

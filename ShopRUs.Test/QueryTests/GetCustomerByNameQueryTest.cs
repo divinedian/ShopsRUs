@@ -19,12 +19,12 @@ namespace ShopsRUs.Test
 
             var query = new GetCustomerByNameQuery
             {
-                Name = "Divinedee"
+                UserName = "Divinedee"
             };
             var result = await SendAsync(query);
 
             result.Should().NotBeNull();
-            result.UserName.Should().Be("Divinedee");
+            result.Data.UserName.Should().Be("Divinedee");
         }
 
         [Test]
@@ -32,11 +32,11 @@ namespace ShopsRUs.Test
         {
             var query = new GetCustomerByNameQuery
             {
-                Name = "Divinedian"
+                UserName = "Divinedian"
             };
             var result = await SendAsync(query);
 
-            result.Should().BeNull();
+            result.Data.Should().BeNull();
         }
     }
 }

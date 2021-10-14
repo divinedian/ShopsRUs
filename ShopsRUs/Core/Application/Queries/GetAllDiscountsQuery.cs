@@ -1,6 +1,5 @@
 ﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
-using ShopsRUs.Data;
+using ShopsRUs.Core.Core.Dao;
 using ShopsRUs.Data.Models;
 using System.Collections.Generic;
 using System.Threading;
@@ -8,22 +7,25 @@ using System.Threading.Tasks;
 
 namespace ShopsRUs.Core.Core.Application.Queries
 {
-    public class GetAllDiscountsQuery : IRequest<List<Discount>>
+    public class GetAllDiscountsQuery : IRequest<BaseResponse<List<Discount>>>
     {
     }
 
-    public class AllDiscountQueryHandler : IRequestHandler<GetAllDiscountsQuery, List<Discount>>
+    public class AllDiscountQueryHandler : IRequestHandler<GetAllDiscountsQuery, BaseResponse<List<Discount>>>
     {
-        private readonly AppDbContext _context;
+        private readonly IDiscountDao _discountDao;
 
-        public AllDiscountQueryHandler(AppDbContext context)
+        public AllDiscountQueryHandler(IDiscountDao discountDao)
         {
-            _context = context;
+            _discountDao = discountDao;
         }
-        public async Task<List<Discount>> Handle(GetAllDiscountsQuery request, CancellationToken cancellationToken)
+        public async Task<BaseResponse<List<Discount>>> Handle(GetAllDiscountsQuery request, CancellationToken cancellationToken)
         {
-            return await _context.Discounts.Include(d => d.UserType)
-                                .ToListAsync();
+            var resp =  await _discountDao.GetAllDiscount();
+            return new BaseResponse<List<Discount>>
+            {
+                Data = resp
+            };
         }
     }
 }

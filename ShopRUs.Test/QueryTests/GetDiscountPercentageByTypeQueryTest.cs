@@ -22,9 +22,9 @@ namespace ShopsRUs.Test.QueryTests
                 DiscountType = "Customer"
             };
 
-            var (result,message) = await SendAsync(query);
+            var response = await SendAsync(query);
 
-            result.Should().Be(0.25M);
+            response.Data.Should().Be(0.25M);
         }
 
         [Test]
@@ -37,9 +37,9 @@ namespace ShopsRUs.Test.QueryTests
                 DiscountType = "Customerr"
             };
 
-            var (result,message) = await SendAsync(query);
+            var resp = await SendAsync(query);
 
-            result.Should().Be(0);
+            resp.Data.Should().Be(0);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using ShopsRUs.Core.Core.Dao;
 using ShopsRUs.Data;
 using ShopsRUs.Data.Models;
 using System;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ShopsRUs.Core.Core.Application.Queries
 {
-    public class GetCustomerByIDQuery : IRequest<Customer>
+    public class GetCustomerByIDQuery : IRequest<BaseResponse<Customer>>
     {
         public string CustomerId { get; set; }
     }
@@ -23,21 +24,32 @@ namespace ShopsRUs.Core.Core.Application.Queries
             RuleFor(x => x.CustomerId).NotNull().NotEmpty();
         }
     }
-    public class CustomerByIdHandler : IRequestHandler<GetCustomerByIDQuery, Customer>
+    public class CustomerByIdHandler : IRequestHandler<GetCustomerByIDQuery, BaseResponse<Customer>>
     {
-        private readonly AppDbContext _context;
-        
-        public CustomerByIdHandler(AppDbContext context)
+        private readonly ICustomerDao _customerDao;
+
+        public CustomerByIdHandler(ICustomerDao customerDao)
         {
-            _context = context;
+            _customerDao = customerDao;
         }
-        public async Task<Customer> Handle(GetCustomerByIDQuery request, CancellationToken cancellationToken)
+        public async Task<BaseResponse<Customer>> Handle(GetCustomerByIDQuery request, CancellationToken cancellationToken)
         {
-            return await _context.Customers.Include(c => c.Orders)
-                               .Include(c => c.UserType)
-                               .ThenInclude(u => u.Discount)
-                               .Where(c => c.CustomerId == request.CustomerId)
-                               .SingleOrDefaultAsync();
+            try
+            {
+                var resp = await _customerDao.GetCustomerById(request.CustomerId);
+                return new BaseResponse<Customer>
+                {
+                    Data = resp,
+                    Message = "customer retrieved successfully"
+                };
+            }
+            catch (Exception e)
+            {
+                return new BaseResponse<Customer>
+                {
+                    Message = e.Message
+                };
+            }
         }
     }
 }

@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using ShopsRUs.Core.Core.Application.Commands;
 using ShopsRUs.Core.Core.Application.Queries;
+using ShopsRUs.Data.Models;
+using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace ShopsRUs.Core.Controllers
@@ -18,27 +21,28 @@ namespace ShopsRUs.Core.Controllers
             _mediator = mediator;
         }
 
+        [ProducesResponseType(typeof(BaseResponse<List<Discount>>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(BaseResponse), (int)HttpStatusCode.BadRequest)]
         [HttpGet("GetAllDiscounts")]
         public async Task<IActionResult> GetAllDiscounts()
         {
-            var discountsretrieved = await _mediator.Send(_allDiscountsQuery);
-            if (discountsretrieved.Count == 0) return BadRequest("You have no discount on your db");
-            return Ok(discountsretrieved);
+            return Ok(await _mediator.Send(_allDiscountsQuery));
         }
 
+        [ProducesResponseType(typeof(BaseResponse<decimal>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(BaseResponse), (int)HttpStatusCode.BadRequest)]
         [HttpGet("GetDiscountPercentage")]
         public async Task<IActionResult> GetDiscountPercentageByType([FromQuery]GetDiscountPercentageByTypeQuery query)
         {
-            var discountPercentage = await _mediator.Send(query);
-            return Ok(discountPercentage);
+            return Ok(await _mediator.Send(query));
         }
 
+        [ProducesResponseType(typeof(BaseResponse<bool>),(int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(BaseResponse),(int)HttpStatusCode.BadRequest)]
         [HttpPost("AddDiscountType")]
         public async Task<IActionResult> AddDiscountType([FromQuery] AddDiscountTypeCommand command)
         {
-            var resp = await _mediator.Send(command);
-            if (!resp) return BadRequest("DiscountType not added");
-            return Ok();
+            return Ok(await _mediator.Send(command));
         }
     }
 }

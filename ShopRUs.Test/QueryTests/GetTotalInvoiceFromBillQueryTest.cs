@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
-using ShopsRUs.Core.Core.Application.Queries;
+using ShopsRUs.Core.Core.Application.Commands;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ShopsRUs.Test.QueryTests
@@ -12,26 +13,34 @@ namespace ShopsRUs.Test.QueryTests
         public async Task ShouldGetCorrectTotalWithCorrectID()
         {
             WithCustomers();
-            var query = new GetTotalInvoiceAmountFromBillQuery
+            //WithCategories();
+            var query = new CreateInvoiceFromBillCommand
             {
-                orderID = "23456"
+                CustomerId = "12345",
+                orderItems = new List<OrderItem>
+                {
+                    new OrderItem
+                    {
+                        Item = "Sneakers",
+                        Quantities = 2
+                    },
+                    new OrderItem
+                    {
+                        Item = "Fish",
+                        Quantities = 1
+                    },
+                    new OrderItem
+                    {
+                        Item = "Trainers",
+                        Quantities = 1
+                    },
+                }
             };
             var result = await SendAsync(query);
-
-            result.Should().Be(1250);
-        }
-
-        [Test]
-        public async Task ShouldNotGetCorrectTotalWithInCorrectID()
-        {
-            WithCustomers();
-            var query = new GetTotalInvoiceAmountFromBillQuery
-            {
-                orderID = "2345"
-            };
-            var result = await SendAsync(query);
-
-            result.Should().Be(0);
-        }
+            result.Data.OrderPrice.Should().Be(796);
+            result.Data.PercentageDiscount.Should().Be(86.5M);
+            result.Data.NonPercentageDiscount.Should().Be(35);
+            result.Data.PayableTotal.Should().Be(674.5M);
+        }        
     }
 }
