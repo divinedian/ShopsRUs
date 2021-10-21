@@ -26,7 +26,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Things you need to use the software and how to install them.
+Things you need, to use the software and how to install them.
 * .NET SDK 5
 	```sh
 	https://dotnet.microsoft.com/download/dotnet/5.0
@@ -47,16 +47,7 @@ Things you need to use the software and how to install them.
 	```
 2. Open the ShopsRUs.sln using Visual Studio
 3. Open Test explorer and run all test
-4. Open Package manager console and enter the following command
-	* To reset database
-		```sh
-		drop-database
-		```
-	* To update database
-		```sh
-		update-database
-		```
-5. Click run within visual studio
+4. Click run within visual studio
 
 ### Try out Some End Points
 1. Create a discount type using the `AddDiscountType` endpoint. This will save a usertype name same as the discount type.
